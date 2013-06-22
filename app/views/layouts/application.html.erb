@@ -7,20 +7,41 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-    <div id="user_nav">
-      <% if user_signed_in? %>
-        Signed in as <%= current_user.email %>. Not you?
-        <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
-      <% else %>
-        <%= link_to "Sign up", new_user_registration_path %> or
-        <%= link_to "Sign in", new_user_session_path %>
-      <% end %>
+    <div class="navbar">
+      <div class="navbar-inner">
+        <a class="brand" href="/">Draft Tool</a>
+        <ul class="nav pull-right">
+          <li class="divider-vertical"></li>
+          <% if user_signed_in? %>
+            <li>
+              <%= link_to "Sign out", destroy_user_session_path, :method => :delete %>
+            </li>
+          <% else %>
+            <li>
+              <%= link_to "Sign in", new_user_session_path %>
+            </li>
+          <% end %>
+          <li class="divider-vertical"></li>
+        </ul>
+      </div>
     </div>
 
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+    <div class="container">
+      <% if notice %>
+        <p class="alert alert-info">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= notice %>
+        </p>
+      <% end %>
+      <% if alert %>
+        <p class="alert alert-error">
+          <button type="button" class="close" data-dismiss="alert">&times;</button>
+          <%= alert %>
+        </p>
+      <% end %>
 
-    <%= yield %>
+      <%= yield %>
+    </div>
 
   </body>
 </html>

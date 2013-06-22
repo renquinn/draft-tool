@@ -1,2 +1,9 @@
-<h1>Home#index</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+<% if user_signed_in? %>
+  Signed in as <%= current_user.email %>
+<% else %>
+  <div class="hero-unit">
+    <h1>Draft Tool - Home</h1>
+    <p><a href="#" class=""></a></p>
+    <%= link_to "Sign up!", new_user_registration_path, :class => "btn btn-primary btn-large" %>
+  </div>
+<% end %>

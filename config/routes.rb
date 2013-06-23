@@ -1,10 +1,8 @@
 DraftTool::Application.routes.draw do
-
-  resources :teams
-
-
   devise_for :users
-  resource :teams
+  devise_scope :user do
+    resources :teams
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

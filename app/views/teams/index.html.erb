@@ -1,23 +1,21 @@
-<h1>Teams</h1>
+<h1>My Teams</h1>
 
-<%= link_to 'New Team', new_team_path %>
-
-<br />
-
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
-<% @teams.each do |team| %>
-  <tr>
-    <td><%= team.name %></td>
-    <td><%= link_to 'Show', team %></td>
-    <td><%= link_to 'Edit', edit_team_path(team) %></td>
-    <td><%= link_to 'Destroy', team, :method => :delete, :data => { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
+<table class="table table-striped">
+  <caption><%= link_to 'New Team', new_team_path %><caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Players Selected</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @teams.each do |team| %>
+    <tr>
+      <td><%= link_to team.name, team %></td>
+      <td>0</td>
+      <td><%= link_to 'Delete', team, :method => :delete, :data => { confirm: 'Are you sure?' } %></td>
+    </tr>
+    <% end %>
+  </tbody>
 </table>

@@ -1,15 +1,3 @@
-<p id="notice"><%= notice %></p>
+<h2><%= @team.name %></h2>
+<small><%= link_to 'Edit Name', edit_team_path(@team) %></small>
 
-<p>
-  <b>Name:</b>
-  <%= @team.name %>
-</p>
-
-<p>
-  <b>User:</b>
-  <%= @team.user %>
-</p>
-
-
-<%= link_to 'Edit', edit_team_path(@team) %> |
-<%= link_to 'Back', teams_path %>

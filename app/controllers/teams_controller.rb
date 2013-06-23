@@ -1,9 +1,12 @@
 class TeamsController < InheritedResources::Base
-  has_scope :for_user, :using => current_user.id
+  before_filter :authenticate_user!
 
   def create
-    #params[:team][:user] = User.find(params[:team][:user])
     params[:team][:user] = current_user
     super
+  end
+
+  def begin_of_association_chain
+    current_user
   end
 end

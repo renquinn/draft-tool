@@ -1,7 +1,10 @@
 DraftTool::Application.routes.draw do
-  get "home/index"
+
+  resources :teams
+
 
   devise_for :users
+  resource :teams
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

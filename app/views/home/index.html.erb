@@ -1,5 +1,6 @@
 <% if user_signed_in? %>
   Signed in as <%= current_user.email %>
+  <%= link_to "Teams", teams_path %>
 <% else %>
   <div class="hero-unit">
     <h1>Draft Tool - Home</h1>

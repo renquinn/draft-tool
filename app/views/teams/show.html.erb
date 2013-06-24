@@ -1,3 +1,44 @@
 <h2><%= @team.name %></h2>
 <small><%= link_to 'Edit Name', edit_team_path(@team) %></small>
 
+<table class="table table-striped">
+  <caption>Players<caption>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Pos</th>
+      <th>Completions</th>
+      <th>Attempts</th>
+      <th>Yards</th>
+      <th>Touchdowns</th>
+      <th>Interceptions</th>
+      <th>Rushes</th>
+      <th>Yards</th>
+      <th>Touchdowns</th>
+      <th>Receptions</th>
+      <th>Yards</th>
+      <th>Touchdowns</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @team.players.each do |player| %>
+    <tr>
+      <td><%= player.name %></td>
+      <td><%= player.nfl_team %></td>
+      <td><%= player.position %></td>
+      <td><%= player.completions %></td>
+      <td><%= player.attempts %></td>
+      <td><%= player.passing_yards %></td>
+      <td><%= player.passing_touchdowns %></td>
+      <td><%= player.interceptions %></td>
+      <td><%= player.rushes %></td>
+      <td><%= player.rushing_yards %></td>
+      <td><%= player.rushing_touchdowns %></td>
+      <td><%= player.receptions %></td>
+      <td><%= player.receiving_yards %></td>
+      <td><%= player.receiving_touchdowns %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

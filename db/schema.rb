@@ -11,7 +11,27 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623004006) do
+ActiveRecord::Schema.define(:version => 20130623224003) do
+
+  create_table "players", :force => true do |t|
+    t.integer  "team_id"
+    t.string   "name"
+    t.string   "nfl_team"
+    t.string   "position"
+    t.integer  "completions"
+    t.integer  "attempts"
+    t.integer  "passing_yards"
+    t.integer  "passing_touchdowns"
+    t.integer  "interceptions"
+    t.integer  "rushes"
+    t.integer  "rushing_yards"
+    t.integer  "rushing_touchdowns"
+    t.integer  "receptions"
+    t.integer  "receiving_yards"
+    t.integer  "receiving_touchdowns"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
 
   create_table "teams", :force => true do |t|
     t.string   "name"

@@ -10,14 +10,21 @@ class Team < ActiveRecord::Base
   def build_players
     rows = CSV.read("public/players.csv")
     rows.each_with_index do |row, i|
-      unless i == 0 || row[1].include?("D/ST")
+      unless i == 0
         p = Player.new
         p.team_id = id
 
-        p_info = row[1].split ","
-        p.name = p_info.first
-        p.nfl_team = p_info.second.split.first
-        p.position = p_info.second.split.second
+        if row[1].include?("D/ST")
+          p_info = row[1].split
+          p.name = p_info.first
+          p.nfl_team = ""
+          p.position = p_info.second
+        else
+          p_info = row[1].split ","
+          p.name = p_info.first
+          p.nfl_team = p_info.second.split.first
+          p.position = p_info.second.split.second
+        end
 
         ca = row[2].split "/"
         p.completions = ca.first

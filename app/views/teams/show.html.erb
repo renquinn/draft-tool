@@ -1,9 +1,17 @@
-<h2><%= @team.name %></h2>
+<h1><%= @team.name %></h1>
 <small><%= link_to 'Edit Name', edit_team_path(@team) %></small>
 
 <table class="table table-striped">
-  <caption>Players<caption>
   <thead>
+    <tr>
+      <th colspan=14></th>
+    </tr>
+    <tr>
+      <th colspan=3></th>
+      <th colspan=5>Passing</th>
+      <th colspan=3>Rushing</th>
+      <th colspan=3>Receiving</th>
+    </tr>
     <tr>
       <th>Name</th>
       <th>Team</th>

@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  team: 
+  completions: 1.5
+  attempts: 1.5
+  passing_yards: 1.5
+  passing_touchdowns: 1.5
+  interceptions: 1.5
+  rushes: 1.5
+  rushing_yards: 1.5
+  rushing_touchdowns: 1.5
+  receptions: 1.5
+  receiving_yards: 1.5
+  receiving_touchdowns: 1.5
+
+two:
+  team: 
+  completions: 1.5
+  attempts: 1.5
+  passing_yards: 1.5
+  passing_touchdowns: 1.5
+  interceptions: 1.5
+  rushes: 1.5
+  rushing_yards: 1.5
+  rushing_touchdowns: 1.5
+  receptions: 1.5
+  receiving_yards: 1.5
+  receiving_touchdowns: 1.5

@@ -1,0 +1,45 @@
+<h1>Listing team_settings</h1>
+
+<table>
+  <tr>
+    <th>Team</th>
+    <th>Completions</th>
+    <th>Attempts</th>
+    <th>Passing yards</th>
+    <th>Passing touchdowns</th>
+    <th>Interceptions</th>
+    <th>Rushes</th>
+    <th>Rushing yards</th>
+    <th>Rushing touchdowns</th>
+    <th>Receptions</th>
+    <th>Receiving yards</th>
+    <th>Receiving touchdowns</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @team_settings.each do |team_setting| %>
+  <tr>
+    <td><%= team_setting.team %></td>
+    <td><%= team_setting.completions %></td>
+    <td><%= team_setting.attempts %></td>
+    <td><%= team_setting.passing_yards %></td>
+    <td><%= team_setting.passing_touchdowns %></td>
+    <td><%= team_setting.interceptions %></td>
+    <td><%= team_setting.rushes %></td>
+    <td><%= team_setting.rushing_yards %></td>
+    <td><%= team_setting.rushing_touchdowns %></td>
+    <td><%= team_setting.receptions %></td>
+    <td><%= team_setting.receiving_yards %></td>
+    <td><%= team_setting.receiving_touchdowns %></td>
+    <td><%= link_to 'Show', team_setting %></td>
+    <td><%= link_to 'Edit', edit_team_setting_path(team_setting) %></td>
+    <td><%= link_to 'Destroy', team_setting, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Team setting', new_team_setting_path %>

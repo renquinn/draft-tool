@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623224003) do
+ActiveRecord::Schema.define(:version => 20130624013743) do
 
   create_table "players", :force => true do |t|
     t.integer  "team_id"
@@ -31,7 +31,27 @@ ActiveRecord::Schema.define(:version => 20130623224003) do
     t.integer  "receiving_touchdowns"
     t.datetime "created_at",           :null => false
     t.datetime "updated_at",           :null => false
+    t.integer  "rank"
   end
+
+  create_table "team_settings", :force => true do |t|
+    t.integer  "team_id"
+    t.float    "completions"
+    t.float    "attempts"
+    t.float    "passing_yards"
+    t.float    "passing_touchdowns"
+    t.float    "interceptions"
+    t.float    "rushes"
+    t.float    "rushing_yards"
+    t.float    "rushing_touchdowns"
+    t.float    "receptions"
+    t.float    "receiving_yards"
+    t.float    "receiving_touchdowns"
+    t.datetime "created_at",           :null => false
+    t.datetime "updated_at",           :null => false
+  end
+
+  add_index "team_settings", ["team_id"], :name => "index_team_settings_on_team_id"
 
   create_table "teams", :force => true do |t|
     t.string   "name"

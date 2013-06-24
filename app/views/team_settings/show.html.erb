@@ -1,0 +1,60 @@
+<h1>League Settings</h1>
+<small><%= link_to 'Edit League Settings', edit_team_setting_path(@team_setting) %></small> |
+<small><%= link_to "Back to #{@team_setting.team.name}", team_path(@team_setting.team) %></small>
+
+<h3>Scoring</h3>
+
+<p>
+  <b>Completions:</b>
+  <%= @team_setting.completions %>
+</p>
+
+<p>
+  <b>Attempts:</b>
+  <%= @team_setting.attempts %>
+</p>
+
+<p>
+  <b>Passing yards:</b>
+  <%= @team_setting.passing_yards %>
+</p>
+
+<p>
+  <b>Passing touchdowns:</b>
+  <%= @team_setting.passing_touchdowns %>
+</p>
+
+<p>
+  <b>Interceptions:</b>
+  <%= @team_setting.interceptions %>
+</p>
+
+<p>
+  <b>Rushes:</b>
+  <%= @team_setting.rushes %>
+</p>
+
+<p>
+  <b>Rushing yards:</b>
+  <%= @team_setting.rushing_yards %>
+</p>
+
+<p>
+  <b>Rushing touchdowns:</b>
+  <%= @team_setting.rushing_touchdowns %>
+</p>
+
+<p>
+  <b>Receptions:</b>
+  <%= @team_setting.receptions %>
+</p>
+
+<p>
+  <b>Receiving yards:</b>
+  <%= @team_setting.receiving_yards %>
+</p>
+
+<p>
+  <b>Receiving touchdowns:</b>
+  <%= @team_setting.receiving_touchdowns %>
+</p>

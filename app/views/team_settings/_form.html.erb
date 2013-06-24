@@ -1,0 +1,61 @@
+<%= form_for(@team_setting) do |f| %>
+  <% if @team_setting.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team_setting.errors.count, "error") %> prohibited this team_setting from being saved:</h2>
+
+      <ul>
+      <% @team_setting.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :completions %>
+    <%= f.text_field :completions, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :attempts %>
+    <%= f.text_field :attempts, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :passing_yards %>
+    <%= f.text_field :passing_yards, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :passing_touchdowns %>
+    <%= f.text_field :passing_touchdowns, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :interceptions %>
+    <%= f.text_field :interceptions, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :rushes %>
+    <%= f.text_field :rushes, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :rushing_yards %>
+    <%= f.text_field :rushing_yards, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :rushing_touchdowns %>
+    <%= f.text_field :rushing_touchdowns, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :receptions %>
+    <%= f.text_field :receptions, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :receiving_yards %>
+    <%= f.text_field :receiving_yards, :class => "input-block-level" %><br />
+  </div>
+  <div class="field">
+    <%= f.label :receiving_touchdowns %>
+    <%= f.text_field :receiving_touchdowns, :class => "input-block-level" %><br />
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

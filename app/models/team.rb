@@ -3,8 +3,10 @@ require 'csv'
 class Team < ActiveRecord::Base
   belongs_to :user
   has_many :players
+  has_one :team_setting
   attr_accessible :name, :user
 
+  after_create :default_settings
   after_create :build_players
 
   def build_players
@@ -14,6 +16,7 @@ class Team < ActiveRecord::Base
         p = Player.new
         p.team_id = id
 
+        p.rank = row[0]
         if row[1].include?("D/ST")
           p_info = row[1].split
           p.name = p_info.first
@@ -27,8 +30,8 @@ class Team < ActiveRecord::Base
         end
 
         ca = row[2].split "/"
-        p.completions = ca.first
         p.attempts = ca.last
+        p.completions = ca.first
         p.passing_yards = row[3]
         p.passing_touchdowns = row[4]
         p.interceptions = row[5]
@@ -44,5 +47,26 @@ class Team < ActiveRecord::Base
         p.save
       end
     end
+  end
+
+  def default_settings
+    settings = TeamSetting.new
+    settings.team_id = id
+
+    settings.attempts = App.default_settings[:attempts]
+    settings.completions = App.default_settings[:completions]
+    settings.passing_yards = App.default_settings[:passing_yards]
+    settings.passing_touchdowns = App.default_settings[:passing_touchdowns]
+    settings.interceptions = App.default_settings[:interceptions]
+
+    settings.rushes = App.default_settings[:rushes]
+    settings.rushing_yards = App.default_settings[:rushing_yards]
+    settings.rushing_touchdowns = App.default_settings[:rushing_touchdowns]
+
+    settings.receptions = App.default_settings[:receptions]
+    settings.receiving_yards = App.default_settings[:receiving_yards]
+    settings.receiving_touchdowns = App.default_settings[:receiving_touchdowns]
+
+    settings.save
   end
 end

@@ -1,4 +1,7 @@
 DraftTool::Application.routes.draw do
+  resources :team_settings
+
+
   devise_for :users
   resources :teams
 

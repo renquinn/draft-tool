@@ -5,39 +5,107 @@
 <table class="table table-striped table-condensed table-hover">
   <thead>
     <tr>
-      <th colspan=15></th>
+      <th colspan=18></th>
     </tr>
     <tr>
-      <th colspan=4></th>
+      <th colspan=5></th>
       <th colspan=5>Passing</th>
       <th colspan=3>Rushing</th>
       <th colspan=3>Receiving</th>
       <th colspan=2>Fantasy Points</th>
     </tr>
     <tr>
+      <th></th>
       <th>Rank</th>
       <th>Name</th>
       <th>Team</th>
       <th>Pos</th>
-      <th>Completions</th>
-      <th>Attempts</th>
-      <th>Yards</th>
-      <th>Touchdowns</th>
-      <th>Interceptions</th>
+      <th>Comps</th>
+      <th>Atts</th>
+      <th>Yds</th>
+      <th>Tds</th>
+      <th>Ints</th>
       <th>Rushes</th>
-      <th>Yards</th>
-      <th>Touchdowns</th>
-      <th>Receptions</th>
-      <th>Yards</th>
-      <th>Touchdowns</th>
+      <th>Yds</th>
+      <th>Tds</th>
+      <th>Recs</th>
+      <th>Yds</th>
+      <th>Tds</th>
       <th>Total</th>
       <th>PPG</th>
     </tr>
   </thead>
 
   <tbody>
-    <% @team.players.each do |player| %>
+    <% if @team.players.selected.any? %>
+      <% @team.players.selected.each do |player| %>
+        <tr>
+          <td><%= link_to 'Remove', mark_as_unselected_path(player), :class => "btn btn-danger btn-mini" %></td>
+          <td><%= player.rank %></td>
+          <td><%= player.name %></td>
+          <td><%= player.nfl_team %></td>
+          <td><%= player.position %></td>
+          <td><%= player.completions %></td>
+          <td><%= player.attempts %></td>
+          <td><%= player.passing_yards %></td>
+          <td><%= player.passing_touchdowns %></td>
+          <td><%= player.interceptions %></td>
+          <td><%= player.rushes %></td>
+          <td><%= player.rushing_yards %></td>
+          <td><%= player.rushing_touchdowns %></td>
+          <td><%= player.receptions %></td>
+          <td><%= player.receiving_yards %></td>
+          <td><%= player.receiving_touchdowns %></td>
+          <td><%= player.calculate_score %></td>
+          <td><%= player.calculate_score/15 %></td>
+        </tr>
+      <% end %>
+    <% else %>
       <tr>
+        <td colspan=18>No players have been selected yet</td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<table class="table table-striped table-condensed table-hover">
+  <thead>
+    <tr>
+      <th colspan=18></th>
+    </tr>
+    <tr>
+      <th colspan=5></th>
+      <th colspan=5>Passing</th>
+      <th colspan=3>Rushing</th>
+      <th colspan=3>Receiving</th>
+      <th colspan=2>Fantasy Points</th>
+    </tr>
+    <tr>
+      <th></th>
+      <th>Rank</th>
+      <th>Name</th>
+      <th>Team</th>
+      <th>Pos</th>
+      <th>Comps</th>
+      <th>Atts</th>
+      <th>Yds</th>
+      <th>Tds</th>
+      <th>Ints</th>
+      <th>Rushes</th>
+      <th>Yds</th>
+      <th>Tds</th>
+      <th>Recs</th>
+      <th>Yds</th>
+      <th>Tds</th>
+      <th>Total</th>
+      <th>PPG</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @team.players.unselected.each do |player| %>
+      <tr>
+        <td><%= link_to 'Pick', mark_as_selected_path(player), :class => "btn btn-mini" %></td>
         <td><%= player.rank %></td>
         <td><%= player.name %></td>
         <td><%= player.nfl_team %></td>

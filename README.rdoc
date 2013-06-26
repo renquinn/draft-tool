@@ -1,3 +1,12 @@
 == Draft Tool
 
 Use this tool during your fantasy football draft.
+
+= TODO:
+
+Use tabs (js from bootstrap) to show players by position
+Sort players (default => rank)
+Mark players as drafted by someone else (highlight red)
+Mark players to keep an eye on them (highlight green)
+Show expected point total by position for selected players
+Come up with a better way to update the stats (nokogiri?)

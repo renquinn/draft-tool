@@ -1,6 +1,8 @@
 DraftTool::Application.routes.draw do
   resources :team_settings
 
+  match 'players/:id/mark_selected' => 'players#mark_selected'
+  match 'players/:id/mark_unselected' => 'players#mark_unselected'
 
   devise_for :users
   resources :teams
@@ -61,4 +63,12 @@ DraftTool::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id))(.:format)'
+end
+
+def mark_as_selected_path(player)
+  "/players/#{player.id}/mark_selected"
+end
+
+def mark_as_unselected_path(player)
+  "/players/#{player.id}/mark_unselected"
 end

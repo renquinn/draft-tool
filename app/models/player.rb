@@ -2,6 +2,9 @@ class Player < ActiveRecord::Base
   belongs_to :team, :dependent => :destroy
   # attr_accessible :title, :body
 
+  scope :selected, where(:selected => true)
+  scope :unselected, where(:selected => false)
+
   def calculate_score
     score = 0
     score += attempts * team.team_setting.attempts
@@ -16,5 +19,15 @@ class Player < ActiveRecord::Base
     score += receiving_yards * team.team_setting.receiving_yards
     score += receiving_touchdowns * team.team_setting.receiving_touchdowns
     score.truncate
+  end
+
+  def mark_selected!
+    self.selected = true
+    save!
+  end
+
+  def mark_unselected!
+    self.selected = false
+    save!
   end
 end

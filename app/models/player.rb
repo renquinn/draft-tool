@@ -37,6 +37,26 @@ class Player < ActiveRecord::Base
     save!
   end
 
+  def mark_removed!
+    self.removed = true
+    save!
+  end
+
+  def mark_unremoved!
+    self.removed = false
+    save!
+  end
+
+  def mark_marked!
+    self.marked = true
+    save!
+  end
+
+  def mark_unmarked!
+    self.marked = false
+    save!
+  end
+
   def self.order_by(column, players)
     column ||= "rank"
 
@@ -74,5 +94,18 @@ class Player < ActiveRecord::Base
     end
 
     players
+  end
+
+  def table_row_classes
+    classes = ""
+    unless selected?
+      if removed?
+        classes += "error"
+      elsif marked?
+        classes += "success"
+      end
+    end
+
+    classes
   end
 end

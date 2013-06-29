@@ -35,12 +35,24 @@
   <tbody>
     <% unless players.nil? || players.empty? %>
       <% players.each do |player| %>
-        <tr>
+        <tr class="<%= player.table_row_classes %>">
+          <td>
           <% if player.selected? %>
-            <td><%= link_to 'Unpick', mark_as_unselected_path(player), :class => "btn btn-danger btn-mini" %></td>
+            <%= link_to 'Unpick', mark_as_unselected_path(player), :class => "btn btn-danger btn-mini" %>
           <% else %>
-            <td><%= link_to 'Pick', mark_as_selected_path(player), :class => "btn btn-mini" %></td>
+            <%= link_to 'Pick', mark_as_selected_path(player), :class => "btn btn-mini" %>
+            <% if player.removed? %>
+              <%= link_to 'Unpick', mark_as_unremoved_path(player), :class => "btn btn-mini" %>
+            <% else %>
+              <%= link_to 'Picked', mark_as_removed_path(player), :class => "btn btn-mini" %>
+            <% end %>
+            <% if player.marked? %>
+              <%= link_to 'Unmark', mark_as_unmarked_path(player), :class => "btn btn-mini" %>
+            <% else %>
+              <%= link_to 'Mark', mark_as_marked_path(player), :class => "btn btn-mini" %>
+            <% end %>
           <% end %>
+        </td>
           <td><%= player.rank %></td>
           <td><%= player.name %></td>
           <td><%= player.nfl_team %></td>

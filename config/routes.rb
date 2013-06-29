@@ -4,6 +4,12 @@ DraftTool::Application.routes.draw do
   match 'players/:id/mark_selected' => 'players#mark_selected'
   match 'players/:id/mark_unselected' => 'players#mark_unselected'
 
+  match 'players/:id/mark_removed' => 'players#mark_removed'
+  match 'players/:id/mark_unremoved' => 'players#mark_unremoved'
+
+  match 'players/:id/mark_marked' => 'players#mark_marked'
+  match 'players/:id/mark_unmarked' => 'players#mark_unmarked'
+
   devise_for :users
   resources :teams
 
@@ -71,4 +77,20 @@ end
 
 def mark_as_unselected_path(player)
   "/players/#{player.id}/mark_unselected"
+end
+
+def mark_as_removed_path(player)
+  "/players/#{player.id}/mark_removed"
+end
+
+def mark_as_unremoved_path(player)
+  "/players/#{player.id}/mark_unremoved"
+end
+
+def mark_as_marked_path(player)
+  "/players/#{player.id}/mark_marked"
+end
+
+def mark_as_unmarked_path(player)
+  "/players/#{player.id}/mark_unmarked"
 end

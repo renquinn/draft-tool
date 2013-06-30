@@ -1,11 +1,14 @@
-<h1>My Teams</h1>
+<div class="page-header">
+  <h1>My Teams</h1>
+  <small><%= link_to 'New Team', new_team_path %></small>
+</div>
 
 <table class="table table-striped">
-  <caption><%= link_to 'New Team', new_team_path %><caption>
   <thead>
     <tr>
       <th>Name</th>
       <th>Players Selected</th>
+      <th>Projected PPG</th>
       <th></th>
     </tr>
   </thead>
@@ -13,7 +16,8 @@
     <% @teams.each do |team| %>
     <tr>
       <td><%= link_to team.name, team %></td>
-      <td>0</td>
+      <td><%= team.players.selected.count %></td>
+      <td><%= team.projected_score/15 %></td>
       <td><%= link_to 'Delete', team, :method => :delete, :data => { confirm: 'Are you sure?' } %></td>
     </tr>
     <% end %>

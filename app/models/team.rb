@@ -69,4 +69,12 @@ class Team < ActiveRecord::Base
 
     settings.save
   end
+
+  def projected_score
+    score = 0
+    players.selected.each do |player|
+      score += player.calculate_score
+    end
+    score
+  end
 end

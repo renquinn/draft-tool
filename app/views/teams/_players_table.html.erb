@@ -12,23 +12,23 @@
     </tr>
     <tr>
       <th></th>
-      <th><%= link_to "Rank", :sort => "rank" %></th>
-      <th><%= link_to "Name", :sort => "name" %></th>
-      <th><%= link_to "Team", :sort => "nfl_team" %></th>
-      <th><%= link_to "Pos", :sort => "position" %></th>
-      <th><%= link_to "Comps", :sort => "completions" %></th>
-      <th><%= link_to "Atts", :sort => "attempts" %></th>
-      <th><%= link_to "Yds", :sort => "passing_yards" %></th>
-      <th><%= link_to "Tds", :sort => "passing_touchdowns" %></th>
-      <th><%= link_to "Ints", :sort => "interceptions" %></th>
-      <th><%= link_to "Rushes", :sort => "rushes" %></th>
-      <th><%= link_to "Yds", :sort => "rushing_yards" %></th>
-      <th><%= link_to "Tds", :sort => "rushing_touchdowns" %></th>
-      <th><%= link_to "Recs", :sort => "receptions" %></th>
-      <th><%= link_to "Yds", :sort => "receiving_yards" %></th>
-      <th><%= link_to "Tds", :sort => "receiving_touchdowns" %></th>
-      <th><%= link_to "Total", :sort => "points" %></th>
-      <th><%= link_to "PPG", :sort => "points" %></th>
+      <th><%= link_to_if !my_team, "Rank", :sort => "rank" %></th>
+      <th><%= link_to_if !my_team, "Name", :sort => "name" %></th>
+      <th><%= link_to_if !my_team, "Team", :sort => "nfl_team" %></th>
+      <th><%= link_to_if !my_team, "Pos", :sort => "position" %></th>
+      <th><%= link_to_if !my_team, "Comps", :sort => "completions" %></th>
+      <th><%= link_to_if !my_team, "Atts", :sort => "attempts" %></th>
+      <th><%= link_to_if !my_team, "Yds", :sort => "passing_yards" %></th>
+      <th><%= link_to_if !my_team, "Tds", :sort => "passing_touchdowns" %></th>
+      <th><%= link_to_if !my_team, "Ints", :sort => "interceptions" %></th>
+      <th><%= link_to_if !my_team, "Rushes", :sort => "rushes" %></th>
+      <th><%= link_to_if !my_team, "Yds", :sort => "rushing_yards" %></th>
+      <th><%= link_to_if !my_team, "Tds", :sort => "rushing_touchdowns" %></th>
+      <th><%= link_to_if !my_team, "Recs", :sort => "receptions" %></th>
+      <th><%= link_to_if !my_team, "Yds", :sort => "receiving_yards" %></th>
+      <th><%= link_to_if !my_team, "Tds", :sort => "receiving_touchdowns" %></th>
+      <th><%= link_to_if !my_team, "Total", :sort => "points" %></th>
+      <th><%= link_to_if !my_team, "PPG", :sort => "points" %></th>
     </tr>
   </thead>
 

@@ -76,7 +76,6 @@ class Team < ActiveRecord::Base
     settings.te_points = App.default_settings[:te_points]
     settings.k_points = App.default_settings[:k_points]
     settings.dst_points = App.default_settings[:dst_points]
-    settings.total_points = App.default_settings[:total_points]
 
     settings.save
   end

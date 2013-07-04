@@ -163,10 +163,18 @@ class Team < ActiveRecord::Base
   end
 
   def self.plus_minus_ideal_points(ideal, starters)
+    drafted_ideal = 0
+    drafted_actual = 0
     diffs = []
     ideal.each_with_index do |p, i|
       diffs << starters[i] - p
+      if starters[i] != 0 && p < 50
+        drafted_ideal += p
+        drafted_actual += starters[i]
+      end
     end
+
+    diffs << drafted_actual - drafted_ideal
 
     diffs.map do |d|
       if d < 0

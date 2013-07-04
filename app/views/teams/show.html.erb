@@ -18,6 +18,7 @@
       <th>K</th>
       <th>DST</th>
       <th>Total</th>
+      <th>Spread</th>
     </tr>
   </thead>
   <tbody>
@@ -26,12 +27,14 @@
       <% @ideal_points.each do |score| %>
         <td><%= score %></td>
       <% end %>
+      <td>--</td>
     </tr>
     <tr>
       <td>Drafted PPG</td>
       <% @starters.each do |score| %>
         <td><%= score %></td>
       <% end %>
+      <td>--</td>
     </tr>
     <tr>
       <td>+/-</td>

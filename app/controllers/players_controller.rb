@@ -1,38 +1,19 @@
 class PlayersController < InheritedResources::Base
-  def mark_selected
+  def toggle_selected
     @player = Player.find(params[:id])
-    @player.mark_selected!
+    @player.toggle_selected!
     redirect_to team_path(@player.team)
   end
 
-  def mark_unselected
+  def toggle_removed
     @player = Player.find(params[:id])
-    @player.mark_unselected!
-    redirect_to team_path(@player.team)
+    @player.toggle_removed!
+    render :json => { :player => params[:id], :removed => @player.removed }
   end
 
-  def mark_removed
+  def toggle_marked
     @player = Player.find(params[:id])
-    @player.mark_removed!
-    redirect_to team_path(@player.team)
-  end
-
-  def mark_unremoved
-    @player = Player.find(params[:id])
-    @player.mark_unremoved!
-    redirect_to team_path(@player.team)
-  end
-
-  def mark_marked
-    @player = Player.find(params[:id])
-    @player.mark_marked!
-    redirect_to team_path(@player.team)
-  end
-
-  def mark_unmarked
-    @player = Player.find(params[:id])
-    @player.mark_unmarked!
-    redirect_to team_path(@player.team)
+    @player.toggle_marked!
+    render :json => { :player => params[:id], :marked => @player.marked }
   end
 end
-

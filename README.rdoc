@@ -4,9 +4,9 @@ Use this tool during your fantasy football draft.
 
 === TODO:
 
-Find a way to calculate DST PPG
+Use session[:sort] instead of params[:sort]
 
-Mark players red or green with AJAX
+Find a way to calculate DST PPG
 
 Come up with a better way to update the stats (nokogiri?)
 

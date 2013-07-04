@@ -1,14 +1,9 @@
 DraftTool::Application.routes.draw do
   resources :team_settings
 
-  match 'players/:id/mark_selected' => 'players#mark_selected'
-  match 'players/:id/mark_unselected' => 'players#mark_unselected'
-
-  match 'players/:id/mark_removed' => 'players#mark_removed'
-  match 'players/:id/mark_unremoved' => 'players#mark_unremoved'
-
-  match 'players/:id/mark_marked' => 'players#mark_marked'
-  match 'players/:id/mark_unmarked' => 'players#mark_unmarked'
+  post 'players/:id/toggle_selected' => 'players#toggle_selected'
+  post 'players/:id/toggle_removed' => 'players#toggle_removed'
+  post 'players/:id/toggle_marked' => 'players#toggle_marked'
 
   devise_for :users
   resources :teams
@@ -71,26 +66,14 @@ DraftTool::Application.routes.draw do
   # match ':controller(/:action(/:id))(.:format)'
 end
 
-def mark_as_selected_path(player)
-  "/players/#{player.id}/mark_selected"
+def toggle_selected_path(player)
+  "/players/#{player.id}/toggle_selected"
 end
 
-def mark_as_unselected_path(player)
-  "/players/#{player.id}/mark_unselected"
+def toggle_removed_path(player)
+  "/players/#{player.id}/toggle_removed"
 end
 
-def mark_as_removed_path(player)
-  "/players/#{player.id}/mark_removed"
-end
-
-def mark_as_unremoved_path(player)
-  "/players/#{player.id}/mark_unremoved"
-end
-
-def mark_as_marked_path(player)
-  "/players/#{player.id}/mark_marked"
-end
-
-def mark_as_unmarked_path(player)
-  "/players/#{player.id}/mark_unmarked"
+def toggle_marked_path(player)
+  "/players/#{player.id}/toggle_marked"
 end

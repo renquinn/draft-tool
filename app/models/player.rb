@@ -27,33 +27,18 @@ class Player < ActiveRecord::Base
     score.truncate
   end
 
-  def mark_selected!
-    self.selected = true
+  def toggle_selected!
+    self.selected = !selected
     save!
   end
 
-  def mark_unselected!
-    self.selected = false
+  def toggle_removed!
+    self.removed = !removed
     save!
   end
 
-  def mark_removed!
-    self.removed = true
-    save!
-  end
-
-  def mark_unremoved!
-    self.removed = false
-    save!
-  end
-
-  def mark_marked!
-    self.marked = true
-    save!
-  end
-
-  def mark_unmarked!
-    self.marked = false
+  def toggle_marked!
+    self.marked = !marked
     save!
   end
 

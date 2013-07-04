@@ -4,11 +4,7 @@ Use this tool during your fantasy football draft.
 
 === TODO:
 
-Show +/- of ideal on PPG table
-
 Find a way to calculate DST PPG
-
-Calculate stuff in the controller, not the view
 
 Mark players red or green with AJAX
 

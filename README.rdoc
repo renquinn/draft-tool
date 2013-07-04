@@ -8,6 +8,8 @@ Use session[:sort] instead of params[:sort]
 
 Maintain player markings (red/green) throughout positional tabs on team show page
 
+Add button to hide/show player rows marked in red
+
 Find a way to calculate DST PPG
 
 Come up with a better way to update the stats (nokogiri?)

@@ -89,6 +89,19 @@ class Team < ActiveRecord::Base
     score
   end
 
+  def ideal_points
+      [team_setting.qb_points,
+      team_setting.rb1_points,
+      team_setting.rb2_points,
+      team_setting.wr1_points,
+      team_setting.wr2_points,
+      team_setting.flex_points,
+      team_setting.te_points,
+      team_setting.k_points,
+      team_setting.dst_points,
+      team_setting.total_points]
+  end
+
   def starters
     scores = [starting_qb_points,
       starting_rb1_points,
@@ -147,5 +160,22 @@ class Team < ActiveRecord::Base
   def starting_dst_points
     dst = Player.order_by("points", players.selected.dst).first
     dst.nil? ? 0 : dst.calculate_score / 15
+  end
+
+  def self.plus_minus_ideal_points(ideal, starters)
+    diffs = []
+    ideal.each_with_index do |p, i|
+      diffs << starters[i] - p
+    end
+
+    diffs.map do |d|
+      if d < 0
+        "<span class=\"text-error\">-#{d}</span>".html_safe
+      elsif d > 0
+        "<span class=\"text-success\">+#{d}</span>".html_safe
+      else
+        "<span class=\"muted\">#{d}</span>".html_safe
+      end
+    end
   end
 end

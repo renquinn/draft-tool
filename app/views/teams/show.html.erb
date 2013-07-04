@@ -23,21 +23,20 @@
   <tbody>
     <tr>
       <td>Ideal PPG</td>
-      <td><%= @team.team_setting.qb_points %></td>
-      <td><%= @team.team_setting.rb1_points %></td>
-      <td><%= @team.team_setting.rb2_points %></td>
-      <td><%= @team.team_setting.wr1_points %></td>
-      <td><%= @team.team_setting.wr2_points %></td>
-      <td><%= @team.team_setting.flex_points %></td>
-      <td><%= @team.team_setting.te_points %></td>
-      <td><%= @team.team_setting.k_points %></td>
-      <td><%= @team.team_setting.dst_points %></td>
-      <td><%= @team.team_setting.total_points %></td>
+      <% @ideal_points.each do |score| %>
+        <td><%= score %></td>
+      <% end %>
     </tr>
     <tr>
       <td>Drafted PPG</td>
-      <% @team.starters.each do |score| %>
+      <% @starters.each do |score| %>
         <td><%= score %></td>
+      <% end %>
+    </tr>
+    <tr>
+      <td>+/-</td>
+      <% @differences.each do |diff| %>
+        <td><%= diff %></td>
       <% end %>
     </tr>
   </tbody>
@@ -45,6 +44,7 @@
 
 <br>
 <h3>My Team</h3>
+<br>
 
 <div class="tabbable">
   <ul class="nav nav-tabs">
@@ -59,31 +59,31 @@
 
   <div class="tab-content">
     <div class="tab-pane active" id="tab1-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected), :my_team => true %>
     </div>
 
     <div class="tab-pane" id="tab2-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected.qb), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected.qb), :my_team => true %>
     </div>
 
     <div class="tab-pane" id="tab3-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected.rb), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected.rb), :my_team => true %>
     </div>
 
     <div class="tab-pane" id="tab4-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected.wr), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected.wr), :my_team => true %>
     </div>
 
     <div class="tab-pane" id="tab5-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected.te), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected.te), :my_team => true %>
     </div>
 
     <div class="tab-pane" id="tab6-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected.k), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected.k), :my_team => true %>
     </div>
 
     <div class="tab-pane" id="tab7-picked">
-      <%= render "players_table", :players => Player.order_by("rank", @team.players.selected.dst), :my_team => true %>
+      <%= render "players_table", :players => Player.order_by("rank", @selected.dst), :my_team => true %>
     </div>
   </div>
 </div>
@@ -103,31 +103,31 @@
 
   <div class="tab-content">
     <div class="tab-pane active" id="tab1-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab2-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected.qb), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.qb), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab3-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected.rb), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.rb), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab4-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected.wr), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.wr), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab5-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected.te), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.te), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab6-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected.k), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.k), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab7-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @team.players.unselected.dst), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.dst), :my_team => false %>
     </div>
   </div>
 </div>

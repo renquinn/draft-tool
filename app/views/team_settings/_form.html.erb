@@ -1,61 +1,110 @@
-<%= form_for(@team_setting) do |f| %>
-  <% if @team_setting.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@team_setting.errors.count, "error") %> prohibited this team_setting from being saved:</h2>
+<div class="row">
+  <%= form_for(@team_setting, :html => { :class => "form-horizontal" }) do |f| %>
+    <% if @team_setting.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@team_setting.errors.count, "error") %> prohibited this team_setting from being saved:</h2>
 
-      <ul>
-      <% @team_setting.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
+        <ul>
+          <% @team_setting.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+          <% end %>
+        </ul>
+      </div>
+    <% end %>
+
+    <div class="row-fluid">
+      <div class="span4">
+        <h3>Scoring</h3>
+        <div class="control-group field">
+          <%= f.label :completions %>
+          <%= f.text_field :completions, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :attempts %>
+          <%= f.text_field :attempts, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :passing_yards %>
+          <%= f.text_field :passing_yards, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :passing_touchdowns %>
+          <%= f.text_field :passing_touchdowns, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :interceptions %>
+          <%= f.text_field :interceptions, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :rushes %>
+          <%= f.text_field :rushes, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :rushing_yards %>
+          <%= f.text_field :rushing_yards, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :rushing_touchdowns %>
+          <%= f.text_field :rushing_touchdowns, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :receptions %>
+          <%= f.text_field :receptions, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :receiving_yards %>
+          <%= f.text_field :receiving_yards, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :receiving_touchdowns %>
+          <%= f.text_field :receiving_touchdowns, :class => "input-block-level" %><br />
+        </div>
+      </div>
+
+      <div class="span4 offset2">
+        <h3>Ideal PPG</h3>
+        <div class="control-group field">
+          <%= f.label :qb_points %>
+          <%= f.text_field :qb_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :rb1_points %>
+          <%= f.text_field :rb1_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :rb2_points %>
+          <%= f.text_field :rb2_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :wr1_points %>
+          <%= f.text_field :wr1_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :wr2_points %>
+          <%= f.text_field :wr2_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :flex_points %>
+          <%= f.text_field :flex_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :te_points %>
+          <%= f.text_field :te_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :k_points %>
+          <%= f.text_field :k_points, :class => "input-block-level" %><br />
+        </div>
+        <div class="control-group field">
+          <%= f.label :dst_points %>
+          <%= f.text_field :dst_points, :class => "input-block-level" %><br />
+        </div>
+      </div>
+    </div>
+
+    <div class="actions">
+      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
+      <%= link_to 'Cancel', @team_setting.team %>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= f.label :completions %>
-    <%= f.text_field :completions, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :attempts %>
-    <%= f.text_field :attempts, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :passing_yards %>
-    <%= f.text_field :passing_yards, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :passing_touchdowns %>
-    <%= f.text_field :passing_touchdowns, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :interceptions %>
-    <%= f.text_field :interceptions, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :rushes %>
-    <%= f.text_field :rushes, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :rushing_yards %>
-    <%= f.text_field :rushing_yards, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :rushing_touchdowns %>
-    <%= f.text_field :rushing_touchdowns, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :receptions %>
-    <%= f.text_field :receptions, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :receiving_yards %>
-    <%= f.text_field :receiving_yards, :class => "input-block-level" %><br />
-  </div>
-  <div class="field">
-    <%= f.label :receiving_touchdowns %>
-    <%= f.text_field :receiving_touchdowns, :class => "input-block-level" %><br />
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-<% end %>
+</div>

@@ -4,10 +4,14 @@ Use this tool during your fantasy football draft.
 
 === TODO:
 
-Show and calculate expected point total for team by position
+Show +/- of ideal on PPG table
+
+Find a way to calculate DST PPG
+
+Calculate stuff in the controller, not the view
 
 Mark players red or green with AJAX
 
 Come up with a better way to update the stats (nokogiri?)
 
-Shrink and expand table (ideally for mobile compatibility)
+Sort players with AJAX

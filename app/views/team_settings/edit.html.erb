@@ -1,6 +1,10 @@
-<div class="hero-unit span4 center">
-  <%= link_to 'Back', @team_setting %>
-  <h2>Edit League Settings</h2>
+<div class="center">
+  <div class="page-header">
+    <h1>Edit League Settings</h1>
+    <small><%= link_to 'Back', @team_setting.team %></small>
+  </div>
 
-  <%= render 'form' %>
+  <div class="hero-unit">
+    <%= render 'form' %>
+  </div>
 </div>

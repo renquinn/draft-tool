@@ -67,6 +67,17 @@ class Team < ActiveRecord::Base
     settings.receiving_yards = App.default_settings[:receiving_yards]
     settings.receiving_touchdowns = App.default_settings[:receiving_touchdowns]
 
+    settings.qb_points = App.default_settings[:qb_points]
+    settings.rb1_points = App.default_settings[:rb1_points]
+    settings.rb2_points = App.default_settings[:rb2_points]
+    settings.wr1_points = App.default_settings[:wr1_points]
+    settings.wr2_points = App.default_settings[:wr2_points]
+    settings.flex_points = App.default_settings[:flex_points]
+    settings.te_points = App.default_settings[:te_points]
+    settings.k_points = App.default_settings[:k_points]
+    settings.dst_points = App.default_settings[:dst_points]
+    settings.total_points = App.default_settings[:total_points]
+
     settings.save
   end
 
@@ -76,5 +87,65 @@ class Team < ActiveRecord::Base
       score += player.calculate_score
     end
     score
+  end
+
+  def starters
+    scores = [starting_qb_points,
+      starting_rb1_points,
+      starting_rb2_points,
+      starting_wr1_points,
+      starting_wr2_points,
+      starting_flex_points,
+      starting_te_points,
+      starting_k_points,
+      starting_dst_points]
+    total = scores.reduce(:+)
+    scores << total
+  end
+
+  def starting_qb_points
+    qb = Player.order_by("points", players.selected.qb).first
+    qb.nil? ? 0 : qb.calculate_score / 15
+  end
+
+  def starting_rb1_points
+    rb = Player.order_by("points", players.selected.rb).first
+    rb.nil? ? 0 : rb.calculate_score / 15
+  end
+
+  def starting_rb2_points
+    rb = Player.order_by("points", players.selected.rb).second
+    rb.nil? ? 0 : rb.calculate_score / 15
+  end
+
+  def starting_wr1_points
+    wr = Player.order_by("points", players.selected.wr).first
+    wr.nil? ? 0 : wr.calculate_score / 15
+  end
+
+  def starting_wr2_points
+    wr = Player.order_by("points", players.selected.wr).second
+    wr.nil? ? 0 : wr.calculate_score / 15
+  end
+
+  def starting_flex_points
+    rb = Player.order_by("points", players.selected.rb).third
+    wr = Player.order_by("points", players.selected.wr).third
+    [rb.nil? ? 0 : rb.calculate_score / 15, wr.nil? ? 0 : wr.calculate_score / 15].max
+  end
+
+  def starting_te_points
+    te = Player.order_by("points", players.selected.te).first
+    te.nil? ? 0 : te.calculate_score / 15
+  end
+
+  def starting_k_points
+    k = Player.order_by("points", players.selected.k).first
+    k.nil? ? 0 : k.calculate_score / 15
+  end
+
+  def starting_dst_points
+    dst = Player.order_by("points", players.selected.dst).first
+    dst.nil? ? 0 : dst.calculate_score / 15
   end
 end

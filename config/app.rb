@@ -15,14 +15,13 @@ class App < Configurable # :nodoc:
     :receiving_yards => 0.1,
     :receiving_touchdowns => 6.0,
     :qb_points => 20,
-    :rb1_points => 12,
-    :rb2_points => 10,
-    :wr1_points => 13,
-    :wr2_points => 10,
-    :flex_points => 10,
-    :te_points => 12,
+    :rb1_points => 15,
+    :rb2_points => 11,
+    :wr1_points => 17,
+    :wr2_points => 14,
+    :flex_points => 12,
+    :te_points => 11,
     :k_points => 7,
-    :dst_points => 10,
-    :total_points => 104
+    :dst_points => 12
   }
 end

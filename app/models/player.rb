@@ -82,15 +82,19 @@ class Player < ActiveRecord::Base
   end
 
   def table_row_classes
-    classes = ""
+    classes = [to_css_class]
     unless selected?
       if removed?
-        classes += "error"
+        classes << "error"
       elsif marked?
-        classes += "success"
+        classes << "success"
       end
     end
 
-    classes
+    classes.join " "
+  end
+
+  def to_css_class
+    "player-#{id}"
   end
 end

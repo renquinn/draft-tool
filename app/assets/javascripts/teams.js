@@ -4,11 +4,11 @@
 $(function(){
   $(".toggle-removed").click(function(){
     $.post($(this).data('path'), function(data) {
-      $("#player-false-" + data.player).toggleClass('error');
+      $(".player-" + data.player).toggleClass('error');
       if (data.removed) {
-        $("#toggle-player-removed-" + data.player).text('Unpick');
+        $(".toggle-player-removed-" + data.player).text('Unpick');
       } else {
-        $("#toggle-player-removed-" + data.player).text('Picked');
+        $(".toggle-player-removed-" + data.player).text('Picked');
       }
     });
     return false;
@@ -16,11 +16,11 @@ $(function(){
 
   $(".toggle-marked").click(function(){
     $.post($(this).data('path'), function(data) {
-      $("#player-false-" + data.player).toggleClass('success');
+      $(".player-" + data.player).toggleClass('success');
       if (data.marked) {
-        $("#toggle-player-marked-" + data.player).text('Unmark');
+        $(".toggle-player-marked-" + data.player).text('Unmark');
       } else {
-        $("#toggle-player-marked-" + data.player).text('Mark');
+        $(".toggle-player-marked-" + data.player).text('Mark');
       }
     });
     return false;

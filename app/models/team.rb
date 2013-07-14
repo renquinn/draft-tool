@@ -185,4 +185,8 @@ class Team < ActiveRecord::Base
       end
     end
   end
+
+  def self.sorting_css(session_sort, column)
+    column == session_sort ? "label label-info" : ""
+  end
 end

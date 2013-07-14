@@ -4,6 +4,7 @@ DraftTool::Application.routes.draw do
   post 'players/:id/toggle_selected' => 'players#toggle_selected'
   post 'players/:id/toggle_removed' => 'players#toggle_removed'
   post 'players/:id/toggle_marked' => 'players#toggle_marked'
+  get "/set_session_sort" => "teams#set_session_sort"
 
   devise_for :users
   resources :teams
@@ -76,4 +77,8 @@ end
 
 def toggle_marked_path(player)
   "/players/#{player.id}/toggle_marked"
+end
+
+def set_session_sort_path
+  "/set_session_sort"
 end

@@ -108,31 +108,31 @@
 
   <div class="tab-content">
     <div class="tab-pane active" id="tab1-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab2-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.qb), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected.qb), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab3-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.rb), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected.rb), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab4-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.wr), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected.wr), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab5-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.te), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected.te), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab6-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.k), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected.k), :my_team => false %>
     </div>
 
     <div class="tab-pane" id="tab7-unpicked">
-      <%= render "players_table", :players => Player.order_by(params[:sort], @unselected.dst), :my_team => false %>
+      <%= render "players_table", :players => Player.order_by(session[:sort], @unselected.dst), :my_team => false %>
     </div>
   </div>
 </div>

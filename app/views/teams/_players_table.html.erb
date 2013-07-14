@@ -12,23 +12,23 @@
     </tr>
     <tr>
       <th><button class="btn btn-mini toggle-picked" data-hidden="false">Hide picked players</button></th>
-      <th><%= link_to_if !my_team, "Rank", :sort => "rank" %></th>
-      <th><%= link_to_if !my_team, "Name", :sort => "name" %></th>
-      <th><%= link_to_if !my_team, "Team", :sort => "nfl_team" %></th>
-      <th><%= link_to_if !my_team, "Pos", :sort => "position" %></th>
-      <th><%= link_to_if !my_team, "Comps", :sort => "completions" %></th>
-      <th><%= link_to_if !my_team, "Atts", :sort => "attempts" %></th>
-      <th><%= link_to_if !my_team, "Yds", :sort => "passing_yards" %></th>
-      <th><%= link_to_if !my_team, "Tds", :sort => "passing_touchdowns" %></th>
-      <th><%= link_to_if !my_team, "Ints", :sort => "interceptions" %></th>
-      <th><%= link_to_if !my_team, "Rushes", :sort => "rushes" %></th>
-      <th><%= link_to_if !my_team, "Yds", :sort => "rushing_yards" %></th>
-      <th><%= link_to_if !my_team, "Tds", :sort => "rushing_touchdowns" %></th>
-      <th><%= link_to_if !my_team, "Recs", :sort => "receptions" %></th>
-      <th><%= link_to_if !my_team, "Yds", :sort => "receiving_yards" %></th>
-      <th><%= link_to_if !my_team, "Tds", :sort => "receiving_touchdowns" %></th>
-      <th><%= link_to_if !my_team, "Total", :sort => "points" %></th>
-      <th><%= link_to_if !my_team, "PPG", :sort => "points" %></th>
+      <th><%= link_to_if !my_team, "Rank", set_session_sort_path(:sort => "rank"), :class => Team.sorting_css(session[:sort], "rank") %></th>
+      <th><%= link_to_if !my_team, "Name", set_session_sort_path(:sort => "name"), :class => Team.sorting_css(session[:sort], "name") %></th>
+      <th><%= link_to_if !my_team, "Team", set_session_sort_path(:sort => "nfl_team"), :class => Team.sorting_css(session[:sort], "nfl_team") %></th>
+      <th><%= link_to_if !my_team, "Pos", set_session_sort_path(:sort => "position"), :class => Team.sorting_css(session[:sort], "position") %></th>
+      <th><%= link_to_if !my_team, "Comps", set_session_sort_path(:sort => "completions"), :class => Team.sorting_css(session[:sort], "completions") %></th>
+      <th><%= link_to_if !my_team, "Atts", set_session_sort_path(:sort => "attempts"), :class => Team.sorting_css(session[:sort], "attempts") %></th>
+      <th><%= link_to_if !my_team, "Yds", set_session_sort_path(:sort => "passing_yards"), :class => Team.sorting_css(session[:sort], "passing_yards") %></th>
+      <th><%= link_to_if !my_team, "Tds", set_session_sort_path(:sort => "passing_touchdowns"), :class => Team.sorting_css(session[:sort], "passing_touchdowns") %></th>
+      <th><%= link_to_if !my_team, "Ints", set_session_sort_path(:sort => "interceptions"), :class => Team.sorting_css(session[:sort], "interceptions") %></th>
+      <th><%= link_to_if !my_team, "Rushes", set_session_sort_path(:sort => "rushes"), :class => Team.sorting_css(session[:sort], "rushes") %></th>
+      <th><%= link_to_if !my_team, "Yds", set_session_sort_path(:sort => "rushing_yards"), :class => Team.sorting_css(session[:sort], "rushing_yards") %></th>
+      <th><%= link_to_if !my_team, "Tds", set_session_sort_path(:sort => "rushing_touchdowns"), :class => Team.sorting_css(session[:sort], "rushing_touchdowns") %></th>
+      <th><%= link_to_if !my_team, "Recs", set_session_sort_path(:sort => "receptions"), :class => Team.sorting_css(session[:sort], "receptions") %></th>
+      <th><%= link_to_if !my_team, "Yds", set_session_sort_path(:sort => "receiving_yards"), :class => Team.sorting_css(session[:sort], "receiving_yards") %></th>
+      <th><%= link_to_if !my_team, "Tds", set_session_sort_path(:sort => "receiving_touchdowns"), :class => Team.sorting_css(session[:sort], "receiving_touchdowns") %></th>
+      <th><%= link_to_if !my_team, "Total", set_session_sort_path(:sort => "points"), :class => Team.sorting_css(session[:sort], "points") %></th>
+      <th><%= link_to_if !my_team, "PPG", set_session_sort_path(:sort => "points"), :class => Team.sorting_css(session[:sort], "points") %></th>
     </tr>
   </thead>
 

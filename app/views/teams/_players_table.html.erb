@@ -11,7 +11,7 @@
       <th colspan=2>Fantasy Points</th>
     </tr>
     <tr>
-      <th></th>
+      <th><button class="btn btn-mini toggle-picked" data-hidden="false">Hide picked players</button></th>
       <th><%= link_to_if !my_team, "Rank", :sort => "rank" %></th>
       <th><%= link_to_if !my_team, "Name", :sort => "name" %></th>
       <th><%= link_to_if !my_team, "Team", :sort => "nfl_team" %></th>

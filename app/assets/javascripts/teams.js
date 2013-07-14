@@ -10,6 +10,9 @@ $(function(){
       } else {
         $(".toggle-player-removed-" + data.player).text('Picked');
       }
+      if ($("button.toggle-picked").data('hidden')) {
+        $(".player-" + data.player).hide();
+      }
     });
     return false;
   });
@@ -24,5 +27,17 @@ $(function(){
       }
     });
     return false;
+  });
+
+  $("button.toggle-picked").click(function() {
+    if (!$("button.toggle-picked").data('hidden')) {
+      $("button.toggle-picked").text('Show picked players');
+      $("button.toggle-picked").data('hidden', true);
+    } else {
+      $("button.toggle-picked").text('Hide picked players');
+      $("button.toggle-picked").data('hidden', false);
+    }
+
+    $('.error').toggle();
   });
 })

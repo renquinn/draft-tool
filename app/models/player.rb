@@ -12,19 +12,25 @@ class Player < ActiveRecord::Base
   scope :dst, where(:position => "D/ST")
 
   def calculate_score
-    score = 0
-    score += attempts * team.team_setting.attempts
-    score += completions * team.team_setting.completions
-    score += passing_yards * team.team_setting.passing_yards
-    score += passing_touchdowns * team.team_setting.passing_touchdowns
-    score += interceptions * team.team_setting.interceptions
-    score += rushes * team.team_setting.rushes
-    score += rushing_yards * team.team_setting.rushing_yards
-    score += rushing_touchdowns * team.team_setting.rushing_touchdowns
-    score += receptions * team.team_setting.receptions
-    score += receiving_yards * team.team_setting.receiving_yards
-    score += receiving_touchdowns * team.team_setting.receiving_touchdowns
-    score.truncate
+    if position == "K"
+      App.k_points[name]
+    elsif position == "D/ST"
+      App.dst_points[name]
+    else
+      score = 0
+      score += attempts * team.team_setting.attempts
+      score += completions * team.team_setting.completions
+      score += passing_yards * team.team_setting.passing_yards
+      score += passing_touchdowns * team.team_setting.passing_touchdowns
+      score += interceptions * team.team_setting.interceptions
+      score += rushes * team.team_setting.rushes
+      score += rushing_yards * team.team_setting.rushing_yards
+      score += rushing_touchdowns * team.team_setting.rushing_touchdowns
+      score += receptions * team.team_setting.receptions
+      score += receiving_yards * team.team_setting.receiving_yards
+      score += receiving_touchdowns * team.team_setting.receiving_touchdowns
+      score.truncate
+    end
   end
 
   def toggle_selected!

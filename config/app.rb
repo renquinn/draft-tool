@@ -1,5 +1,4 @@
 class App < Configurable # :nodoc:
-  # Settings in config/app/* take precedence over those specified here.
   config.name = Rails.application.class.parent.name
 
   config.default_settings = {
@@ -23,5 +22,38 @@ class App < Configurable # :nodoc:
     :te_points => 11,
     :k_points => 7,
     :dst_points => 12
+  }
+
+  config.dst_points = {
+    "Seahawks" => 171,
+    "49ers" => 177,
+    "Texans" => 166,
+    "Bears" => 160,
+    "Broncos" => 140,
+    "Bengals" => 125,
+    "Patriots" => 136,
+    "Steelers" => 123,
+    "Rams" => 123,
+    "Packers" => 126,
+    "Ravens" => 117,
+    "Cowboys" => 120,
+    "Dolphins" => 102
+  }
+
+  config.k_points = {
+    "Stephen Gostkowski" => 157,
+    "Blair Walsh" => 157,
+    "Matt Bryant" => 150,
+    "Justin Tucker" => 148,
+    "Matt Prater" => 144,
+    "Phil Dawson" => 144,
+    "Randy Bullock" => 141,
+    "Josh Brown" => 137,
+    "Sebastian Janikowski" => 137,
+    "David Akers" => 134,
+    "Dan Bailey" => 134,
+    "Greg Zuerlein" => 130,
+    "Steven Hauschka" => 128,
+    "Garrett Hartley" => 127
   }
 end

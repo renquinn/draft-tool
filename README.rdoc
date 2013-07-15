@@ -4,10 +4,6 @@ Use this tool during your fantasy football draft.
 
 === TODO:
 
-Use session[:sort] instead of params[:sort]
-
-Find a way to calculate DST PPG
+Store points in DB
 
 Come up with a better way to update the stats (nokogiri?)
-
-Sort players with AJAX

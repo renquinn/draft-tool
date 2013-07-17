@@ -1,4 +1,5 @@
 DraftTool::Application.routes.draw do
+  root :to => 'home#index'
   devise_for :admin_users, ActiveAdmin::Devise.config
 
   resources :team_settings
@@ -9,8 +10,8 @@ DraftTool::Application.routes.draw do
   get "/set_session_sort" => "teams#set_session_sort"
 
   devise_for :users
-  ActiveAdmin.routes(self)
   resources :teams
+  ActiveAdmin.routes(self)
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
@@ -61,7 +62,6 @@ DraftTool::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'home#index'
 
   # See how all your routes lay out with "rake routes"
 

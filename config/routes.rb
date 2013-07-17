@@ -1,4 +1,7 @@
 DraftTool::Application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+
   resources :team_settings
 
   post 'players/:id/toggle_selected' => 'players#toggle_selected'
@@ -7,6 +10,7 @@ DraftTool::Application.routes.draw do
   get "/set_session_sort" => "teams#set_session_sort"
 
   devise_for :users
+  ActiveAdmin.routes(self)
   resources :teams
 
   # The priority is based upon order of creation:

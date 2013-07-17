@@ -11,7 +11,11 @@
       <th colspan=2>Fantasy Points</th>
     </tr>
     <tr>
-      <th><button class="btn btn-mini toggle-picked" data-hidden="false">Hide picked players</button></th>
+      <% if !my_team %>
+        <th><button class="btn btn-mini toggle-picked" data-hidden="false">Hide picked players</button></th>
+      <% else %>
+        <th></th>
+      <% end %>
       <th><%= link_to_if !my_team, "Rank", set_session_sort_path(:sort => "rank"), :class => Team.sorting_css(session[:sort], "rank") %></th>
       <th><%= link_to_if !my_team, "Name", set_session_sort_path(:sort => "name"), :class => Team.sorting_css(session[:sort], "name") %></th>
       <th><%= link_to_if !my_team, "Team", set_session_sort_path(:sort => "nfl_team"), :class => Team.sorting_css(session[:sort], "nfl_team") %></th>

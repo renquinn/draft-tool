@@ -37,7 +37,14 @@ class App < Configurable # :nodoc:
     "Packers" => 126,
     "Ravens" => 117,
     "Cowboys" => 120,
-    "Dolphins" => 102
+    "Dolphins" => 102,
+    "Buccaneers" => 114,
+    "Giants" => 104,
+    "Falcons" => 100,
+    "Chargers" => 106,
+    "Browns" => 85,
+    "Jets" => 99,
+    "Cardinals" => 100
   }
 
   config.k_points = {
@@ -54,6 +61,19 @@ class App < Configurable # :nodoc:
     "Dan Bailey" => 134,
     "Greg Zuerlein" => 130,
     "Steven Hauschka" => 128,
-    "Garrett Hartley" => 127
+    "Garrett Hartley" => 127,
+    "Robbie Gould" => 125,
+    "Mike Nugent" => 124,
+    "Mason Crosy" => 121,
+    "Lawrence Tynes" => 120,
+    "Adam Vinatieri" => 120,
+    "Alex Henery" => 117,
+    "Shaun Suisham" => 114,
+    "Rob Bironas" => 112,
+    "Graham Gano" => 112,
+    "Kai Forbath" => 109,
+    "Jay Feely" => 106,
+    "Shayne Graham" => 106,
+    "Ryan Succop" => 106
   }
 end

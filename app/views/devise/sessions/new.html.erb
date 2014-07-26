@@ -4,21 +4,21 @@
   <%= devise_error_messages! %>
 
   <div class="form-group">
-    <%= f.label :email, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-4">
+    <%= f.label :email, :class => "col-md-2 control-label" %>
+    <div class="col-md-4">
       <%= f.email_field :email, :autofocus => true, :placeholder => "Email", :class => "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <%= f.label :password, :class => "col-lg-2 control-label" %>
-    <div class="col-lg-4">
+    <%= f.label :password, :class => "col-md-2 control-label" %>
+    <div class="col-md-4">
       <%= f.password_field :password, :placeholder => "Password", :class => "form-control" %>
     </div>
   </div>
 
   <div class="form-group">
-    <div class="col-lg-4 col-lg-offset-2">
+    <div class="col-md-4 col-md-offset-2">
       <% if devise_mapping.rememberable? -%>
         <%= f.check_box :remember_me %> Remember Me<br><br>
       <% end -%>

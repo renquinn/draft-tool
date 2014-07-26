@@ -4,51 +4,51 @@
   <small><%= link_to 'Edit League Settings', edit_team_setting_path(@team.team_setting) %></small>
 </div>
 
-<div class="col-md-7 pull-right">
-  <table class="table table-striped table-condensed">
-    <thead>
-      <tr>
-        <th></th>
-        <th>QB</th>
-        <th>RB1</th>
-        <th>RB2</th>
-        <th>WR1</th>
-        <th>WR2</th>
-        <th>RB/WR</th>
-        <th>TE</th>
-        <th>K</th>
-        <th>DST</th>
-        <th>Total</th>
-        <th>Spread</th>
-      </tr>
-    </thead>
+  <div class="table-responsive pull-right">
+    <table class="table table-striped table-condensed">
+      <thead>
+        <tr>
+          <th></th>
+          <th>QB</th>
+          <th>RB1</th>
+          <th>RB2</th>
+          <th>WR1</th>
+          <th>WR2</th>
+          <th>Flex</th>
+          <th>TE</th>
+          <th>K</th>
+          <th>DST</th>
+          <th>Total</th>
+          <th>Spread</th>
+        </tr>
+      </thead>
 
-    <tbody>
-      <tr>
-        <td>Ideal PPG</td>
-        <% @ideal_points.each do |score| %>
-          <td><%= score %></td>
-        <% end %>
-        <td>--</td>
-      </tr>
+      <tbody>
+        <tr>
+          <td>Ideal PPG</td>
+          <% @ideal_points.each do |score| %>
+            <td><%= score %></td>
+          <% end %>
+          <td>--</td>
+        </tr>
 
-      <tr>
-        <td>Drafted PPG</td>
-        <% @starters.each do |score| %>
-          <td><%= score %></td>
-        <% end %>
-        <td>--</td>
-      </tr>
+        <tr>
+          <td>Drafted PPG</td>
+          <% @starters.each do |score| %>
+            <td><%= score %></td>
+          <% end %>
+          <td>--</td>
+        </tr>
 
-      <tr>
-        <td>+/-</td>
-        <% @differences.each do |diff| %>
-          <td><%= diff %></td>
-        <% end %>
-      </tr>
-    </tbody>
-  </table>
-</div>
+        <tr>
+          <td>+/-</td>
+          <% @differences.each do |diff| %>
+            <td><%= diff %></td>
+          <% end %>
+        </tr>
+      </tbody>
+    </table>
+  </div>
 
 <br>
 <h3>My Team</h3>

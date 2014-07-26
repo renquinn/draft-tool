@@ -1,5 +1,5 @@
 <div class="row">
-  <%= form_for(@team_setting, :html => { :class => "form-horizontal" }) do |f| %>
+  <%= form_for(@team_setting, :html => { :class => "edit_team_setting form-horizontal" }) do |f| %>
     <% if @team_setting.errors.any? %>
       <div id="error_explanation">
         <h2><%= pluralize(@team_setting.errors.count, "error") %> prohibited this team_setting from being saved:</h2>
@@ -12,99 +12,153 @@
       </div>
     <% end %>
 
-    <div class="row-fluid">
-      <div class="span4">
-        <h3>Scoring</h3>
-        <div class="control-group field">
-          <%= f.label :completions %>
-          <%= f.text_field :completions, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :attempts %>
-          <%= f.text_field :attempts, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :passing_yards %>
-          <%= f.text_field :passing_yards, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :passing_touchdowns %>
-          <%= f.text_field :passing_touchdowns, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :interceptions %>
-          <%= f.text_field :interceptions, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :rushes %>
-          <%= f.text_field :rushes, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :rushing_yards %>
-          <%= f.text_field :rushing_yards, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :rushing_touchdowns %>
-          <%= f.text_field :rushing_touchdowns, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :receptions %>
-          <%= f.text_field :receptions, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :receiving_yards %>
-          <%= f.text_field :receiving_yards, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :receiving_touchdowns %>
-          <%= f.text_field :receiving_touchdowns, :class => "input-block-level" %><br />
-        </div>
-      </div>
+    <legend>Scoring</legend>
 
-      <div class="span4 offset2">
-        <h3>Ideal PPG</h3>
-        <div class="control-group field">
-          <%= f.label :qb_points %>
-          <%= f.text_field :qb_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :rb1_points %>
-          <%= f.text_field :rb1_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :rb2_points %>
-          <%= f.text_field :rb2_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :wr1_points %>
-          <%= f.text_field :wr1_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :wr2_points %>
-          <%= f.text_field :wr2_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :flex_points %>
-          <%= f.text_field :flex_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :te_points %>
-          <%= f.text_field :te_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :k_points %>
-          <%= f.text_field :k_points, :class => "input-block-level" %><br />
-        </div>
-        <div class="control-group field">
-          <%= f.label :dst_points %>
-          <%= f.text_field :dst_points, :class => "input-block-level" %><br />
-        </div>
+    <div class="form-group">
+      <%= f.label :completions, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :completions, :class => "form-control" %><br />
       </div>
     </div>
 
-    <div class="actions">
-      <%= f.submit "Submit", :class => "btn btn-large btn-primary" %>
-      <%= link_to 'Cancel', @team_setting.team %>
+    <div class="form-group">
+      <%= f.label :attempts, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :attempts, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :passing_yards, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :passing_yards, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :passing_touchdowns, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :passing_touchdowns, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :interceptions, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :interceptions, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rushes, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :rushes, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rushing_yards, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :rushing_yards, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rushing_touchdowns, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :rushing_touchdowns, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :receptions, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :receptions, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :receiving_yards, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :receiving_yards, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :receiving_touchdowns, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :receiving_touchdowns, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <legend>Ideal PPG</legend>
+
+    <div class="form-group">
+      <%= f.label :qb_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :qb_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rb1_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :rb1_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :rb2_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :rb2_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :wr1_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :wr1_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :wr2_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :wr2_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :flex_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :flex_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :te_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :te_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :k_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :k_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= f.label :dst_points, :class => "col-lg-2 control-label" %>
+      <div class="col-lg-4 col-lg-offset-2">
+        <%= f.text_field :dst_points, :class => "form-control" %><br />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <%= link_to "Cancel", @team_setting.team, :class => "btn btn-default" %>
+      <%= f.submit "Submit", :class => "btn btn-success" %>
     </div>
   <% end %>
 </div>

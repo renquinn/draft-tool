@@ -177,7 +177,7 @@ class Team < ActiveRecord::Base
 
     diffs.map do |d|
       if d < 0
-        "<span class=\"text-error\">#{d}</span>".html_safe
+        "<span class=\"text-danger\">#{d}</span>".html_safe
       elsif d > 0
         "<span class=\"text-success\">+#{d}</span>".html_safe
       else

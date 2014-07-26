@@ -4,7 +4,7 @@
 $(function(){
   $(".toggle-removed").click(function(){
     $.post($(this).data('path'), function(data) {
-      $(".player-" + data.player).toggleClass('error');
+      $(".player-" + data.player).toggleClass('danger');
       if (data.removed) {
         $(".toggle-player-removed-" + data.player).text('Unpick');
       } else {
@@ -38,6 +38,6 @@ $(function(){
       $("button.toggle-picked").data('hidden', false);
     }
 
-    $('.error').toggle();
+    $('.danger').fadeToggle("slow");
   });
 })

@@ -91,7 +91,7 @@ class Player < ActiveRecord::Base
     classes = [to_css_class]
     unless selected?
       if removed?
-        classes << "error"
+        classes << "danger"
       elsif marked?
         classes << "success"
       end

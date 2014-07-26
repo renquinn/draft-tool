@@ -12,7 +12,7 @@
     </tr>
     <tr>
       <% if !my_team %>
-        <th><button class="btn btn-mini toggle-picked" data-hidden="false">Hide picked players</button></th>
+        <th><button class="btn btn-xs btn-info toggle-picked" data-hidden="false">Hide picked players</button></th>
       <% else %>
         <th></th>
       <% end %>
@@ -53,7 +53,7 @@
             </tr>
             <tr>
               <% if !my_team %>
-                <th><button class="btn btn-mini toggle-picked" data-hidden="false">Hide picked players</button></th>
+                <th><button class="btn btn-xs btn-info toggle-picked" data-hidden="false">Hide picked players</button></th>
               <% else %>
                 <th></th>
               <% end %>
@@ -80,18 +80,18 @@
         <tr class="<%= player.table_row_classes %>" id="<%= "player-#{my_team}-#{player.id}" %>">
           <td>
           <% if player.selected? %>
-            <%= link_to 'Unpick', toggle_selected_path(player), :method => 'post', :class => "btn btn-danger btn-mini" %>
+            <%= link_to 'Unpick', toggle_selected_path(player), :method => 'post', :class => "btn btn-danger btn-xs btn-info" %>
           <% else %>
-            <%= link_to 'Pick', toggle_selected_path(player), :method => 'post', :class => "btn btn-mini" %>
+            <%= link_to 'Pick', toggle_selected_path(player), :method => 'post', :class => "btn btn-xs btn-primary" %>
             <% if player.removed? %>
-              <%= link_to 'Unpick', '', :data => { :path => toggle_removed_path(player) }, :class => "btn btn-mini toggle-removed toggle-player-removed-#{player.id}" %>
+              <%= link_to 'Unpick', '', :data => { :path => toggle_removed_path(player) }, :class => "btn btn-xs btn-info toggle-removed toggle-player-removed-#{player.id}" %>
             <% else %>
-              <%= link_to 'Picked', '', :data => { :path => toggle_removed_path(player) }, :class => "btn btn-mini toggle-removed toggle-player-removed-#{player.id}" %>
+              <%= link_to 'Picked', '', :data => { :path => toggle_removed_path(player) }, :class => "btn btn-xs btn-danger toggle-removed toggle-player-removed-#{player.id}" %>
             <% end %>
             <% if player.marked? %>
-              <%= link_to 'Unmark', '', :data => { :path => toggle_marked_path(player) }, :class => "btn btn-mini toggle-marked toggle-player-marked-#{player.id}" %>
+              <%= link_to 'Unmark', '', :data => { :path => toggle_marked_path(player) }, :class => "btn btn-xs btn-info toggle-marked toggle-player-marked-#{player.id}" %>
             <% else %>
-              <%= link_to 'Mark', '', :data => { :path => toggle_marked_path(player) }, :class => "btn btn-mini toggle-marked toggle-player-marked-#{player.id}" %>
+              <%= link_to 'Mark', '', :data => { :path => toggle_marked_path(player) }, :class => "btn btn-xs btn-success toggle-marked toggle-player-marked-#{player.id}" %>
             <% end %>
           <% end %>
         </td>

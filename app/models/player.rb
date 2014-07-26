@@ -13,9 +13,9 @@ class Player < ActiveRecord::Base
 
   def calculate_score
     if position == "K"
-      App.k_points[name]
+      0
     elsif position == "D/ST"
-      App.dst_points[name]
+      0
     else
       score = 0
       score += attempts * team.team_setting.attempts

@@ -29,6 +29,8 @@ were retrieved from static config variables using the app gem.
 
 === TODO:
 
+Use hidden-xs class on stats table, showing only fantasy points and rank
+
 Get updated K and DST points (better)
 
 Come up with a better way to update all of the stats (nokogiri?)

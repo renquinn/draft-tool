@@ -2,8 +2,33 @@
 
 Use this tool during your fantasy football draft.
 
+== Instructions
+
+Start postgres (`brew install postgresql`):
+
+```
+postgres -D /usr/local/var/postgres
+```
+
+Start rails:
+
+```
+bin/rails s
+```
+
+Load app:
+
+```
+http://localhost:3000
+```
+
+To update player statistics, replace `public/players.csv`.
+
+For now, K and DST points will be zeroed out. Previously, the points
+were retrieved from static config variables using the app gem.
+
 === TODO:
 
-Store points in DB
+Get updated K and DST points (better)
 
-Come up with a better way to update the stats (nokogiri?)
+Come up with a better way to update all of the stats (nokogiri?)

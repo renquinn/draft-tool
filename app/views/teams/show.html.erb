@@ -1,5 +1,6 @@
 <div class="page-header">
   <h1><%= @team.name %></h1>
+  <small><%= link_to 'Update Stats', update_team_stats_path(@team) %></small> |
   <small><%= link_to 'Edit Name', edit_team_path(@team) %></small> |
   <small><%= link_to 'Edit League Settings', edit_team_setting_path(@team.team_setting) %></small>
 </div>

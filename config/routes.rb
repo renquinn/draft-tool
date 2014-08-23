@@ -8,6 +8,8 @@ DraftTool::Application.routes.draw do
   post 'players/:id/toggle_removed' => 'players#toggle_removed'
   post 'players/:id/toggle_marked' => 'players#toggle_marked'
   get "/set_session_sort" => "teams#set_session_sort"
+  get "/set_session_sort" => "teams#set_session_sort"
+  get '/teams/:id/update_stats' => 'teams#update_player_stats'
 
   devise_for :users
   resources :teams
@@ -84,4 +86,8 @@ end
 
 def set_session_sort_path
   "/set_session_sort"
+end
+
+def update_team_stats_path(team)
+  "/teams/#{team.id}/update_stats"
 end

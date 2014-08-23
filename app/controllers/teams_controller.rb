@@ -25,4 +25,10 @@ class TeamsController < InheritedResources::Base
     session[:sort] = params[:sort]
     redirect_to team_path(session[:team_id])
   end
+
+  def update_player_stats
+    @team = Team.find(params[:id])
+    @team.update_player_stats
+    redirect_to team_path(session[:team_id])
+  end
 end
